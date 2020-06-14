@@ -1,10 +1,7 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view />
+    <SearchBox />
+    <PackageList filtered="true" />
   </div>
 </template>
 
@@ -30,3 +27,10 @@
   }
 }
 </style>
+<script>
+import SearchBox from "@/components/SearchBox";
+import PackageList from "@/components/PackageList";
+export default {
+  components: { PackageList, SearchBox }
+};
+</script>
