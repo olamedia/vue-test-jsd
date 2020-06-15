@@ -3,19 +3,10 @@
     <v-container>
       <v-row dense>
         <v-col cols="12" v-for="pkg in packages" :key="pkg['package'].name">
-          <v-card>
-            <v-card-title>{{ pkg["package"].name }}</v-card-title>
-            <v-card-text>{{ pkg["package"].description }}</v-card-text>
-            <v-card-actions>
-              <v-btn
-                text
-                color="deep-purple accent-4"
-                v-on:click="openModal(pkg['package'])"
-              >
-                Details
-              </v-btn>
-            </v-card-actions>
-          </v-card>
+          <PackageCard
+            v-bind:item="pkg['package']"
+            v-bind:details="x => openModal(x)"
+          />
         </v-col>
       </v-row>
 
@@ -30,16 +21,18 @@
               {{ dialogContext.description }}
             </v-card-text>
 
-            <v-card-text>
+            <v-card-text v-if="dialogContext.keywords">
               Keywords: {{ dialogContext.keywords.join(", ") }}
             </v-card-text>
 
-            <v-card-text> Author: {{ dialogContext.author.name }} </v-card-text>
+            <v-card-text v-if="dialogContext.author">
+              Author: {{ dialogContext.author.name }}
+            </v-card-text>
 
-            <v-divider></v-divider>
+            <v-divider />
 
             <v-card-actions>
-              <v-spacer></v-spacer>
+              <v-spacer />
               <v-btn color="primary" text @click="dialogContext = null">
                 Close
               </v-btn>
@@ -52,8 +45,10 @@
 </template>
 
 <script>
+import PackageCard from "@/components/PackageCard";
 export default {
   name: "PackageList",
+  components: { PackageCard },
   data: function() {
     return {
       modal: false,
@@ -73,10 +68,8 @@ export default {
     }
   },
   methods: {
-    openModal: function(pkg, event) {
+    openModal: function(pkg) {
       this.dialogContext = pkg;
-      console.log(pkg);
-      return;
     }
   }
 };

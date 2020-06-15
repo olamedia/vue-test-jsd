@@ -8,6 +8,12 @@ const npmApi = axios.create({
   baseURL: "/search"
 });
 
+// https://data.jsdelivr.com/v1
+
+// const jsdApi = axios.create({
+//   baseURL: "https://data.jsdelivr.com/v1"
+// });
+
 Vue.use(Vuex);
 
 export const mutations = {
@@ -33,7 +39,7 @@ type packageInfo = {
     author: packageAuthor;
     date: string;
     description: string;
-    keywords: string[];
+    keywords?: string[];
     links: {
       npm: string;
       [x: string]: string;
