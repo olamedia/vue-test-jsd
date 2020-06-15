@@ -10,6 +10,14 @@
     <v-main>
       <PackageList />
     </v-main>
+
+    <v-footer>
+      <v-container>
+        <div class="text-center">
+          https://github.com/olamedia/vue-test-jsd
+        </div>
+      </v-container>
+    </v-footer>
   </v-app>
 </template>
 
