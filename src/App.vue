@@ -8,15 +8,13 @@
     </v-app-bar>
 
     <v-main>
-      <PackageList filtered="true" />
-      <HelloWorld />
+      <PackageList />
     </v-main>
   </v-app>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
-import HelloWorld from "./components/HelloWorld.vue";
 import SearchBox from "@/components/SearchBox.vue";
 import PackageList from "@/components/PackageList.vue";
 
@@ -25,8 +23,7 @@ export default Vue.extend({
 
   components: {
     PackageList,
-    SearchBox,
-    HelloWorld
+    SearchBox
   },
 
   data: () => ({

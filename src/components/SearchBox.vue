@@ -8,6 +8,7 @@
       label="Search"
       class="hidden-sm-and-down"
       v-model="query"
+      autofocus
     />
   </div>
 </template>
