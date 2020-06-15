@@ -1,6 +1,12 @@
 <template>
   <div>
-    Package List
+    <v-container>
+      Package List
+      <v-card>
+        <v-card-title>Title</v-card-title>
+        <v-card-text>Text</v-card-text>
+      </v-card>
+    </v-container>
   </div>
 </template>
 

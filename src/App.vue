@@ -1,36 +1,36 @@
 <template>
-  <div id="app">
-    <SearchBox />
-    <PackageList filtered="true" />
-  </div>
+  <v-app>
+    <v-app-bar app color="primary" dark>
+      <v-container>
+        <SearchBox />
+        <v-spacer></v-spacer>
+      </v-container>
+    </v-app-bar>
+
+    <v-main>
+      <PackageList filtered="true" />
+      <HelloWorld />
+    </v-main>
+  </v-app>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script lang="ts">
+import Vue from "vue";
+import HelloWorld from "./components/HelloWorld.vue";
+import SearchBox from "@/components/SearchBox.vue";
+import PackageList from "@/components/PackageList.vue";
 
-#nav {
-  padding: 30px;
+export default Vue.extend({
+  name: "App",
 
-  a {
-    font-weight: bold;
-    color: #2c3e50;
+  components: {
+    PackageList,
+    SearchBox,
+    HelloWorld
+  },
 
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
-}
-</style>
-<script>
-import SearchBox from "@/components/SearchBox";
-import PackageList from "@/components/PackageList";
-export default {
-  components: { PackageList, SearchBox }
-};
+  data: () => ({
+    //
+  })
+});
 </script>
